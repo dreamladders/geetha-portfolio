@@ -2,105 +2,171 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Medical Coding Portfolio</title>
+<title>Geetha | Healthcare Intelligence System</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* ========== GLOBAL ========== */
+/* ================= BASE ================= */
+*{margin:0;padding:0;box-sizing:border-box;}
 body{
-  margin:0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
-  background: radial-gradient(circle at top, #0f172a, #020617);
+  font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto;
+  background:#05070d;
   color:#e5e7eb;
+  overflow-x:hidden;
+  scroll-behavior:smooth;
 }
 
-/* ========== HEADER ========== */
-header{
+/* ================= NAV ================= */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:14px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(0,0,0,0.35);
+  backdrop-filter:blur(14px);
+  z-index:1000;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+nav span{font-weight:600;}
+nav a{
+  color:#9ca3af;
+  margin-left:16px;
+  text-decoration:none;
+  font-size:13px;
+}
+nav a:hover{color:#fff;}
+
+/* ================= HERO ================= */
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   text-align:center;
-  padding:70px 20px 40px;
+  position:relative;
+  perspective:1000px;
+  overflow:hidden;
 }
 
-header h1{
+.hero h1{
+  font-size:60px;
+  letter-spacing:-1px;
+  transform:translateZ(60px);
+  animation:fadeUp 1s ease forwards;
+}
+
+.hero p{
+  max-width:650px;
+  margin-top:20px;
+  color:#9ca3af;
+  line-height:1.6;
+  transform:translateZ(30px);
+}
+
+/* floating glow layers (Vision Pro depth feel) */
+.glow{
+  position:absolute;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,#3b82f6,transparent 60%);
+  filter:blur(90px);
+  top:20%;
+  left:50%;
+  transform:translateX(-50%);
+  animation:float 6s ease-in-out infinite;
+  z-index:-1;
+}
+
+/* ================= SECTION ================= */
+section{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:100px 10%;
+  position:relative;
+}
+
+/* ================= CONTENT BOX ================= */
+.content{
+  max-width:900px;
+  transform-style:preserve-3d;
+  transition:transform 0.5s ease;
+}
+
+/* Tesla-style heading */
+h2{
   font-size:42px;
-  margin:0;
-  letter-spacing:1px;
+  margin-bottom:20px;
+  letter-spacing:-1px;
 }
 
-header p{
-  margin:6px 0;
-  color:#94a3b8;
-}
-
-/* ========== CONTAINER ========== */
-.container{
-  width:92%;
-  max-width:1100px;
-  margin:auto;
-  padding-bottom:60px;
-}
-
-/* ========== SECTION TITLE ========== */
-.section{
-  margin-top:40px;
-}
-
-.section h2{
-  font-size:18px;
-  letter-spacing:1px;
-  color:#cbd5e1;
-  margin-bottom:12px;
-  padding-left:10px;
-  border-left:3px solid #60a5fa;
-}
-
-/* ========== GLASS CARD ========== */
+/* glass card */
 .card{
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:22px;
   border-radius:16px;
-  padding:18px;
-  margin-top:12px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  transition:0.25s;
+  backdrop-filter:blur(14px);
+  margin-top:20px;
+  transition:0.3s;
 }
 
 .card:hover{
-  transform: translateY(-4px);
+  transform:translateY(-6px) scale(1.01);
   border-color:#3b82f6;
 }
 
-/* ========== CASE CARD ========== */
-.case{
-  border-left:3px solid #3b82f6;
-  padding-left:14px;
-}
-
-/* ========== TAGS ========== */
+/* tags */
 .tag{
   display:inline-block;
   padding:6px 10px;
   margin:4px;
   font-size:12px;
   border-radius:999px;
-  background: rgba(59,130,246,0.15);
+  background:rgba(59,130,246,0.15);
   border:1px solid rgba(59,130,246,0.3);
   color:#93c5fd;
 }
 
-/* ========== GRID (optional future use) ========== */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:15px;
+/* ================= BACKGROUND LAYERS ================= */
+.layer{
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  pointer-events:none;
 }
 
-/* ========== FOOTER ========== */
+.layer.one{
+  background:radial-gradient(circle at 20% 30%, rgba(59,130,246,0.15), transparent 40%);
+}
+.layer.two{
+  background:radial-gradient(circle at 80% 70%, rgba(99,102,241,0.12), transparent 45%);
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes float{
+  0%,100%{transform:translate(-50%,0);}
+  50%{transform:translate(-50%,40px);}
+}
+
+/* ================= FOOTER ================= */
 footer{
   text-align:center;
-  padding:30px;
-  color:#64748b;
-  font-size:13px;
+  padding:40px;
+  color:#6b7280;
   border-top:1px solid rgba(255,255,255,0.08);
 }
 </style>
@@ -108,92 +174,101 @@ footer{
 
 <body>
 
-<header>
-  <h1>S. Geetha</h1>
-  <p>Medical Coding | Healthcare Documentation</p>
-  <p>Nizamabad & Hyderabad</p>
-  <p>shambudugeetha@gmail.com</p>
-</header>
-
-<div class="container">
-
-  <div class="section">
-    <h2>ABOUT</h2>
-    <div class="card">
-      Detail-oriented Life Sciences postgraduate with strong knowledge of ICD-10-CM, CPT coding, anatomy, and medical documentation.
-    </div>
+<nav>
+  <span>Geetha AI Systems</span>
+  <div>
+    <a href="#vision">Vision</a>
+    <a href="#system">System</a>
+    <a href="#cases">Cases</a>
+    <a href="#build">Build</a>
   </div>
+</nav>
 
-  <div class="section">
-    <h2>CORE SKILLS</h2>
-    <div class="card">
-      <span class="tag">ICD-10-CM</span>
-      <span class="tag">CPT Coding</span>
-      <span class="tag">Anatomy</span>
-      <span class="tag">Medical Terminology</span>
-      <span class="tag">Healthcare Documentation</span>
-      <span class="tag">MS Excel</span>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>MEDICAL CASE STUDIES</h2>
-
-    <div class="card case">
-      <b>Acute Appendicitis</b><br>
-      ICD-10-CM: K35.80<br>
-      CPT: 44970
-    </div>
-
-    <div class="card case">
-      <b>Type 2 Diabetes Mellitus</b><br>
-      ICD-10-CM: E11.9<br>
-      CPT: 99213
-    </div>
-
-    <div class="card case">
-      <b>Hypertension</b><br>
-      ICD-10-CM: I10<br>
-      CPT: 99214
-    </div>
-
-    <div class="card case">
-      <b>Fracture of Radius</b><br>
-      ICD-10-CM: S52.501A<br>
-      CPT: 25605
-    </div>
-
-    <div class="card case">
-      <b>Acute Bronchitis</b><br>
-      ICD-10-CM: J20.9<br>
-      CPT: 99213
-    </div>
-
-  </div>
-
-  <div class="section">
-    <h2>PROJECTS</h2>
-    <div class="card">
-      - Medical Coding Practice (50+ cases)<br>
-      - Healthcare Documentation Simulation<br>
-      - Anatomy & Terminology Study System
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>EDUCATION</h2>
-    <div class="card">
-      B.Ed Physical Science (2021–2023)<br>
-      M.Sc Chemistry – 66%<br>
-      B.Sc Biotechnology – 81%
-    </div>
-  </div>
-
+<!-- HERO (Apple Vision Pro style depth) -->
+<div class="hero">
+  <div class="glow"></div>
+  <h1>Healthcare Intelligence System</h1>
+  <p>
+    Transforming medical coding into structured AI-ready systems for automation, accuracy, and scalable healthcare workflows.
+  </p>
 </div>
 
+<!-- VISION (Tesla storytelling section 1) -->
+<section id="vision">
+  <div class="layer one"></div>
+  <div class="content">
+    <h2>Vision</h2>
+    <div class="card">
+      From manual medical coding → to intelligent healthcare systems that understand, structure, and automate clinical workflows.
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEM -->
+<section id="system">
+  <div class="layer two"></div>
+  <div class="content">
+    <h2>System Design</h2>
+
+    <div class="card">
+      <span class="tag">ICD Mapping Engine</span>
+      <span class="tag">CPT Logic Layer</span>
+      <span class="tag">Clinical Data Flow</span>
+      <span class="tag">AI Ready Structure</span>
+    </div>
+
+    <div class="card">
+      Medical data is not treated as records — it is treated as a structured computational system.
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section id="cases">
+  <div class="content">
+    <h2>Intelligence Cases</h2>
+
+    <div class="card">Appendicitis → K35.80 → 44970</div>
+    <div class="card">Diabetes → E11.9 → 99213</div>
+    <div class="card">Hypertension → I10 → 99214</div>
+    <div class="card">Fracture → S52.501A → 25605</div>
+
+  </div>
+</section>
+
+<!-- BUILD -->
+<section id="build">
+  <div class="content">
+    <h2>What I Am Building</h2>
+
+    <div class="card">
+      A healthcare intelligence layer that converts raw clinical data into structured coding logic,
+      enabling automation, billing intelligence, and AI-driven medical systems.
+    </div>
+
+    <div class="card">
+      Future direction: Integration with AI agents, hospital systems, and automated documentation pipelines.
+    </div>
+
+  </div>
+</section>
+
 <footer>
-  © 2026 S. Geetha | Medical Coding Portfolio
+  © 2026 Geetha | Healthcare Intelligence System
 </footer>
+
+<script>
+/* ================= PARALLAX SCROLL ================= */
+window.addEventListener("scroll", () => {
+  let value = window.scrollY;
+
+  document.querySelector(".hero h1").style.transform =
+    "translateY(" + value * 0.3 + "px)";
+
+  document.querySelector(".hero p").style.transform =
+    "translateY(" + value * 0.15 + "px)";
+});
+</script>
 
 </body>
 </html>
