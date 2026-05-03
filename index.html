@@ -1,72 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>S. Geetha | Medical Coding Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      color: #333;
-    }
-    header {
-      background: #0b3d91;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-    }
-    header h1 { margin: 0; }
-    header p { margin: 5px 0; }
+<meta charset="UTF-8">
+<title>Medical Coding Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .container {
-      width: 90%;
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px 0;
-    }
+<style>
+/* ========== GLOBAL ========== */
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color:#e5e7eb;
+}
 
-    .section {
-      margin-bottom: 30px;
-    }
+/* ========== HEADER ========== */
+header{
+  text-align:center;
+  padding:70px 20px 40px;
+}
 
-    .section h2 {
-      border-left: 5px solid #0b3d91;
-      padding-left: 10px;
-    }
+header h1{
+  font-size:42px;
+  margin:0;
+  letter-spacing:1px;
+}
 
-    .card {
-      background: white;
-      padding: 15px;
-      margin-top: 10px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
+header p{
+  margin:6px 0;
+  color:#94a3b8;
+}
 
-    .case {
-      border-left: 4px solid #0b3d91;
-      padding-left: 10px;
-      margin-top: 10px;
-    }
+/* ========== CONTAINER ========== */
+.container{
+  width:92%;
+  max-width:1100px;
+  margin:auto;
+  padding-bottom:60px;
+}
 
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #0b3d91;
-      color: white;
-    }
+/* ========== SECTION TITLE ========== */
+.section{
+  margin-top:40px;
+}
 
-    .tag {
-      display: inline-block;
-      background: #e0e7ff;
-      color: #0b3d91;
-      padding: 5px 10px;
-      border-radius: 5px;
-      margin: 3px;
-      font-size: 12px;
-    }
-  </style>
+.section h2{
+  font-size:18px;
+  letter-spacing:1px;
+  color:#cbd5e1;
+  margin-bottom:12px;
+  padding-left:10px;
+  border-left:3px solid #60a5fa;
+}
+
+/* ========== GLASS CARD ========== */
+.card{
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius:16px;
+  padding:18px;
+  margin-top:12px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition:0.25s;
+}
+
+.card:hover{
+  transform: translateY(-4px);
+  border-color:#3b82f6;
+}
+
+/* ========== CASE CARD ========== */
+.case{
+  border-left:3px solid #3b82f6;
+  padding-left:14px;
+}
+
+/* ========== TAGS ========== */
+.tag{
+  display:inline-block;
+  padding:6px 10px;
+  margin:4px;
+  font-size:12px;
+  border-radius:999px;
+  background: rgba(59,130,246,0.15);
+  border:1px solid rgba(59,130,246,0.3);
+  color:#93c5fd;
+}
+
+/* ========== GRID (optional future use) ========== */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:15px;
+}
+
+/* ========== FOOTER ========== */
+footer{
+  text-align:center;
+  padding:30px;
+  color:#64748b;
+  font-size:13px;
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+</style>
 </head>
 
 <body>
@@ -81,16 +118,14 @@
 <div class="container">
 
   <div class="section">
-    <h2>About</h2>
+    <h2>ABOUT</h2>
     <div class="card">
-      Detail-oriented Life Sciences postgraduate with strong knowledge of 
-      ICD-10-CM, CPT coding, anatomy, and medical documentation. 
-      Passionate about accuracy, compliance, and building a career in Healthcare IT.
+      Detail-oriented Life Sciences postgraduate with strong knowledge of ICD-10-CM, CPT coding, anatomy, and medical documentation.
     </div>
   </div>
 
   <div class="section">
-    <h2>Core Skills</h2>
+    <h2>CORE SKILLS</h2>
     <div class="card">
       <span class="tag">ICD-10-CM</span>
       <span class="tag">CPT Coding</span>
@@ -102,66 +137,53 @@
   </div>
 
   <div class="section">
-    <h2>Medical Coding Case Studies</h2>
+    <h2>MEDICAL CASE STUDIES</h2>
 
     <div class="card case">
-      <b>Case 1: Acute Appendicitis</b><br>
-      Diagnosis: Acute Appendicitis<br>
+      <b>Acute Appendicitis</b><br>
       ICD-10-CM: K35.80<br>
-      Procedure: Laparoscopic Appendectomy<br>
-      CPT: 44970<br>
-      Notes: Patient presented with abdominal pain; surgery performed successfully.
+      CPT: 44970
     </div>
 
     <div class="card case">
-      <b>Case 2: Type 2 Diabetes Mellitus</b><br>
-      Diagnosis: Type 2 Diabetes without complications<br>
+      <b>Type 2 Diabetes Mellitus</b><br>
       ICD-10-CM: E11.9<br>
-      Procedure: Routine evaluation<br>
-      CPT: 99213<br>
-      Notes: Regular follow-up visit; no complications noted.
+      CPT: 99213
     </div>
 
     <div class="card case">
-      <b>Case 3: Hypertension</b><br>
-      Diagnosis: Essential Hypertension<br>
+      <b>Hypertension</b><br>
       ICD-10-CM: I10<br>
-      CPT: 99214<br>
-      Notes: Patient monitored for BP control and medication adjustment.
+      CPT: 99214
     </div>
 
     <div class="card case">
-      <b>Case 4: Fracture of Radius</b><br>
-      Diagnosis: Closed fracture of distal radius<br>
+      <b>Fracture of Radius</b><br>
       ICD-10-CM: S52.501A<br>
-      Procedure: Closed reduction<br>
-      CPT: 25605<br>
-      Notes: Initial encounter for fracture treatment.
+      CPT: 25605
     </div>
 
     <div class="card case">
-      <b>Case 5: Acute Bronchitis</b><br>
-      Diagnosis: Acute Bronchitis<br>
+      <b>Acute Bronchitis</b><br>
       ICD-10-CM: J20.9<br>
-      CPT: 99213<br>
-      Notes: Treated with medication; no complications.
+      CPT: 99213
     </div>
 
   </div>
 
   <div class="section">
-    <h2>Projects</h2>
+    <h2>PROJECTS</h2>
     <div class="card">
-      - Medical Coding Practice (50+ cases logged in Excel)<br>
-      - Healthcare Documentation Review Simulation<br>
-      - Medical Terminology & Anatomy Application Study
+      - Medical Coding Practice (50+ cases)<br>
+      - Healthcare Documentation Simulation<br>
+      - Anatomy & Terminology Study System
     </div>
   </div>
 
   <div class="section">
-    <h2>Education</h2>
+    <h2>EDUCATION</h2>
     <div class="card">
-      B.Ed (Physical Science) – 2021–2023<br>
+      B.Ed Physical Science (2021–2023)<br>
       M.Sc Chemistry – 66%<br>
       B.Sc Biotechnology – 81%
     </div>
